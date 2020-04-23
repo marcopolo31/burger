@@ -1,7 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Menus{% endblock %}
+{% block title %}FastBurger.com{% endblock %}
+
+{% block titre %}FastBurger.com{% endblock %}
 
 {% block body %}
 
+<main class="container">
+    <h1>Nos Menus : </h1>
+    <section class="row">
+        {% for menu in categories.menu %}
+        <div class=" col-md-4 mb-3">
+            <div class="card">
+                <img src="{{asset('images/' ~ menu.image)}}" alt="Card image">
+                <div class="card-body">
+                    <p>{{menu.prix}}€</p>
+                    <h3>{{menu.nom}}</h3>
+                    <p class="card-text">
+                        {{menu.description}}
+                    </p>
+                </div>
+                <a href="#" class="btn btn-danger mb-2">Commander</a>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</main>
 {% endblock %}

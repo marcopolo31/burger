@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Menu;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategorieRepository")
@@ -24,7 +25,7 @@ class Categorie
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\menu", mappedBy="categorie")
+     * @ORM\OneToMany(targetEntity="App\Entity\Menu", mappedBy="categorie")
      */
     private $menu;
 
@@ -51,14 +52,14 @@ class Categorie
     }
 
     /**
-     * @return Collection|menu[]
+     * @return Collection|Menu[]
      */
     public function getMenu(): Collection
     {
         return $this->menu;
     }
 
-    public function addMenu(menu $menu): self
+    public function addMenu(Menu $menu): self
     {
         if (!$this->menu->contains($menu)) {
             $this->menu[] = $menu;
@@ -68,7 +69,7 @@ class Categorie
         return $this;
     }
 
-    public function removeMenu(menu $menu): self
+    public function removeMenu(Menu $menu): self
     {
         if ($this->menu->contains($menu)) {
             $this->menu->removeElement($menu);

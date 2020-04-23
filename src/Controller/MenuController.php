@@ -2,18 +2,28 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use App\Entity\Menu;
+use App\Entity\Categorie;
+use App\Repository\CategorieRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MenuController extends AbstractController
 {
     /**
-     * @Route("/menu", name="menu")
+     * @Route("/categories/{id}", name="menu")
      */
-    public function index()
-    {
+    public function index(Categorie $categories)
+    
+    {   
         return $this->render('menu/index.html.twig', [
-            'controller_name' => 'MenuController',
+            'categories' => $categories,
         ]);
     }
+
+    
+
+
+
 }
