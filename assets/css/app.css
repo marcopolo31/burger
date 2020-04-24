@@ -10,3 +10,8 @@ img{
 .card{
     height: 500px;
 }
+
+td img{
+    height: 150px;
+    width: 150px;
+}

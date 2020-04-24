@@ -14,11 +14,11 @@ class MenuController extends AbstractController
     /**
      * @Route("/categories/{id}", name="menu")
      */
-    public function index(Categorie $categories)
+    public function index(Categorie $categorie)
     
     {   
         return $this->render('menu/index.html.twig', [
-            'categories' => $categories,
+            'categorie' => $categorie,
         ]);
     }
 

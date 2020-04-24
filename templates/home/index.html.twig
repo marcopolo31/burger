@@ -1,15 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}FastBurger.com{% endblock %}
-
-{% block titre %}FastBurger.com{% endblock %}
+{% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-
 <main class="container">
-    <h1>{{categorie.nom}} </h1>
+    <h1>Nos Menus : </h1>
     <section class="row">
-        {% for menu in categorie.menu %}
+        {% for menu in menus %}
         <div class=" col-md-4 mb-3">
             <div class="card">
                 <img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="Card image">
