@@ -31,7 +31,8 @@ class AdminMenuController extends AbstractController
         $form = $this->createForm(MenuType::class, $menu);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid())
+        {
             $entityManager->persist($menu);
             $entityManager->flush();
             return $this->redirectToRoute("admin_menu");
@@ -41,5 +42,19 @@ class AdminMenuController extends AbstractController
             'menu' => $menu,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/admin/menu/{id}", name="suppression_menu", methods="SUP")
+     */
+    public function suppression(Menu $menu, Request $request, EntityManagerInterface $entityManager)
+    {   
+        if($this->isCsrfTokenValid("SUP".$menu->getId(), $request->get('_token')))
+        {
+            $entityManager->remove($menu);
+            $entityManager->flush();
+            return $this->redirectToRoute("admin_menu");
+        }
+
     }
 }

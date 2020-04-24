@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Utilisateur;
+use App\Form\InscriptionType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class AdminController extends AbstractController
 {
@@ -20,10 +23,12 @@ class AdminController extends AbstractController
     /**
      * @Route("/inscription", name="inscription")
      */
-    public function inscription()
-    {
+    public function inscription(Utilisateur $utilisateur)
+    {   
+        $form = $this->createForm(InscriptionType::class, $utilisateur);
         return $this->render('admin/inscription.html.twig', [
-            'controller_name' => 'AdminController',
+            'utilisateur' => $utilisateur,
+            'form' => $form->createView()
         ]);
     }
 }
