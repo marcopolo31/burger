@@ -3,11 +3,18 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
+ * @UniqueEntity(
+ * fields = {"username"},
+ * message="user existe déjà"
+ * )
  */
-class Utilisateur
+class Utilisateur implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -19,56 +26,83 @@ class Utilisateur
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $pseudo;
-
-    /**
-     * @ORM\Column(type="string", length=20)
-     */
-    private $mot_de_passe;
+    private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $role;
+    private $password;
+
+    /**
+     * @Assert\EqualTo(propertyPath="password",message="Les mdp ne correspondent pas")
+     */
+    private $verifPassword;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $roles;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPseudo(): ?string
+    public function getUsername(): ?string
     {
-        return $this->pseudo;
+        return $this->username;
     }
 
-    public function setPseudo(string $pseudo): self
+    public function setUsername(string $username): self
     {
-        $this->pseudo = $pseudo;
+        $this->username = $username;
 
         return $this;
     }
 
-    public function getMotDePasse(): ?string
+    public function getPassword(): ?string
     {
-        return $this->mot_de_passe;
+        return $this->password;
     }
 
-    public function setMotDePasse(string $mot_de_passe): self
+    public function setPassword(string $password): self
     {
-        $this->mot_de_passe = $mot_de_passe;
+        $this->password = $password;
 
         return $this;
     }
 
-    public function getRole(): ?string
+    public function getVerifPassword(): ?string
     {
-        return $this->role;
+        return $this->password;
     }
 
-    public function setRole(string $role): self
+    public function setVerifPassword(string $verifPassword): self
     {
-        $this->role = $role;
+        $this->verifPassword = $verifPassword;
 
         return $this;
+    }
+
+    public function getRoles()
+    {
+        return [$this->roles];
+    }
+
+    public function setRoles(string $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function eraseCredentials()
+    {
+        
+    }
+
+    public function getSalt()
+    {
+        
     }
 }
