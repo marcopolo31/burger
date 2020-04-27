@@ -54,7 +54,7 @@ class AdminController extends AbstractController
      */
     public function deconnexion()
     {
-        
+        return $this->redirectToRoute("home");
            
     }
 }

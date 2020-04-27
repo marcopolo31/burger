@@ -1,6 +1,3 @@
-body {
-    
-}
 
 img{
     height: 250px;
@@ -12,6 +9,17 @@ img{
 }
 
 td img{
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
+}
+
+.img2{
+    height: 250px;
+    width: 25%;
+    
+}
+
+.navigation{
+    display: flex;
+    justify-content: center;
 }

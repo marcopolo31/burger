@@ -4,7 +4,12 @@
 
 {% block body %}
 
+<div class="text-center mt-5">
+<a href="{{path('admin_create')}}" class="btn btn-success w-50 ">Ajouter</a>
+</div>
+
 <table class="table text-center mt-5">
+    
     <thead class="table-primary">
         <tr>
             <th scope="col">Image</th>
@@ -18,7 +23,7 @@
     <tbody>
         {% for menu in menus %}
         <tr>
-            <td class="align-middle"><img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="imageMenu"></td>
+            <td class="align-middle"><img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="{{menu.nom}}"></td>
             <td class="align-middle">{{menu.nom}}</td>
             <td class="align-middle">{{menu.description}}</td>
             <td class="align-middle">{{menu.categorie.nom}}</td>
@@ -35,5 +40,8 @@
         {% endfor %}
     </tbody>
 </table>
+<div class="navigation">
+    {{ knp_pagination_render(menus) }}
+</div>
 
 {% endblock %}

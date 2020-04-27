@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Menu;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Menu|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,6 +19,12 @@ class MenuRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Menu::class);
     }
+
+    public function findAllWithPagination() : Query{
+        return $this->createQueryBuilder('v')
+            ->getQuery();
+    }
+
 
     // /**
     //  * @return Menu[] Returns an array of Menu objects

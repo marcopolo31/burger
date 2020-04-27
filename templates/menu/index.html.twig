@@ -12,7 +12,7 @@
         {% for menu in categorie.menu %}
         <div class=" col-md-4 mb-3">
             <div class="card">
-                <img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="Card image">
+                <img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="{{menu.nom}}">
                 <div class="card-body">
                     <p>{{menu.prix}}€</p>
                     <h3>{{menu.nom}}</h3>
@@ -20,7 +20,7 @@
                         {{menu.description}}
                     </p>
                 </div>
-                <a href="#" class="btn btn-danger mb-2">Commander</a>
+                <a href="{{path('panier_add', {'id' : menu.id})}}" class="btn btn-danger mb-2">Commander</a>
             </div>
         </div>
         {% endfor %}
