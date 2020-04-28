@@ -20,7 +20,13 @@
                         {{menu.description}}
                     </p>
                 </div>
+                {% if not app.user %}
+                <p class="mt-5">Pour commander:</p>
+                <a href="{{path('login')}}" class="btn btn-primary mb-2">Se connecter</a>
+                <a href="{{path('inscription')}}" class="btn btn-primary mb-2">S'inscrire</a>
+                {% else %}
                 <a href="{{path('panier_add', {'id' : menu.id})}}" class="btn btn-danger mb-2">Commander</a>
+                {% endif %}
             </div>
         </div>
         {% endfor %}

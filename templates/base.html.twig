@@ -44,9 +44,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{path('menu', {id : 6})}}">Desserts</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{path('panier')}}">Panier</a>
-        </li>
+       
         
         {% if is_granted('ROLE_ADMIN') %}
         <li class="nav-item">
@@ -64,6 +62,9 @@
         {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{{path('logout')}}">Déconnexion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('panier')}}">Panier</a>
         </li>
         {% endif %}
       </ul>

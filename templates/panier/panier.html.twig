@@ -12,7 +12,7 @@
                 <th>Prix</th>
                 <th>Quantité</th>
                 <th>Total</th>
-                <th></th>
+                <th>Suppression</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
                     <td>{{item.quantity}}</td>
                     <td>{{item.menu.prix * item.quantity}}</td>
                     <td>
-                        <a href="{{path('panier_remove', {'id' : item.menu.id})}}" class="btn btn-danger btn-sm"></a>
+                        <a href="{{path('panier_remove', {'id' : item.menu.id})}}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             {% endfor %}
