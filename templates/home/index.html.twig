@@ -11,13 +11,17 @@
             <div class="card">
                 <img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="{{menu.nom}}">
                 <div class="card-body">
-                    <p>{{menu.prix}}€</p>
+                    <p>{{menu.prix | number_format(2, '.', ',')}}€</p>
                     <h3>{{menu.nom}}</h3>
                     <p class="card-text">
                         {{menu.description}}
                     </p>
                 </div>
+                {% if not app.user %}
+                <a href="{{path('login')}}" class="btn btn-danger mb-2">Commander</a>
+                {% else %}
                 <a href="{{path('panier_add', {'id' : menu.id})}}" class="btn btn-danger mb-2">Commander</a>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
