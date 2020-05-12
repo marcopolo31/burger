@@ -54,7 +54,7 @@ class Menu
         return $this->imageFile;
     }
 
-    public function setImageFile(?File $imageFile = null)
+    public function setImageFile(?File $imageFile = null): self
     {
 
         $this->imageFile = $imageFile;

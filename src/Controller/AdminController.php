@@ -56,10 +56,15 @@ class AdminController extends AbstractController
                 "Votre compte a bien été crée ! Vous pouvez maintenant vous connecter"
             );
 
+            return $this->redirectToRoute("login");
+
             
         }
+        return $this->render('admin/inscription.html.twig', [
+            'form' => $form->createView(),
+            
+        ]);
 
-        return $this->redirectToRoute("account_login");
 
     }
 
@@ -97,9 +102,11 @@ class AdminController extends AbstractController
                 'success',
                 "Les nouvelles données ont bien été prises en compte !"
             );
+
+            return $this->redirectToRoute("account_index");
         }
 
-        return $this->render('user/profil.html.twig', [
+        return $this->render('user/modifProfil.html.twig', [
             'form' => $form->createView(),
             
         ]);
