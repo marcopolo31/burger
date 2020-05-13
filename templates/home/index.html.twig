@@ -3,28 +3,86 @@
 {% block title %}Bienvenue sur FastBurger.com{% endblock %}
 
 {% block body %}
-<main class="container">
-    <h1>Nos Menus : </h1>
-    <section class="row">
-        {% for menu in menus %}
-        <div class=" col-md-4 mb-3">
-            <div class="card">
-                <img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="{{menu.nom}}">
-                <div class="card-body">
-                    <p>{{menu.prix | number_format(2, '.', ',')}}€</p>
-                    <h3>{{menu.nom}}</h3>
-                    <p class="card-text">
-                        {{menu.description}}
-                    </p>
-                </div>
-                {% if not app.user %}
-                <a href="{{path('login')}}" class="btn btn-danger mb-2">Commander</a>
-                {% else %}
-                <a href="{{path('panier_add', {'id' : menu.id})}}" class="btn btn-danger mb-2">Commander</a>
-                {% endif %}
-            </div>
+<main class="container mt-3">
+    <section>
+        
+        <h1>Nos produits</h1>
+        <!--Carousel Wrapper-->
+<div id="carousel-burger" class="carousel slide carousel-fade" data-ride="carousel">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-burger" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-burger" data-slide-to="1"></li>
+      <li data-target="#carousel-burger" data-slide-to="2"></li>
+      <li data-target="#carousel-burger" data-slide-to="3"></li>
+    </ol>
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <div class="view">
+          <img class="d-block w-100" src="{{asset('images/img/m2.png')}}"
+            alt="First slide">
+          <div class="mask rgba-black-light"></div>
         </div>
-        {% endfor %}
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Light mask</h3>
+          <p>First text</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view">
+          <img class="d-block w-100" src="{{asset('images/img/b1.png')}}"
+            alt="Second slide">
+          <div class="mask rgba-black-strong"></div>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Strong mask</h3>
+          <p>Secondary text</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view">
+          <img class="d-block w-100" src="{{asset('images/img/s2.png')}}"
+            alt="Third slide">
+          <div class="mask rgba-black-slight"></div>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Slight mask</h3>
+          <p>Third text</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view">
+          <img class="d-block w-100" src="{{asset('images/img/d1.png')}}"
+            alt="Third slide">
+          <div class="mask rgba-black-slight"></div>
+        </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">Slight mask</h3>
+          <p>Third text</p>
+        </div>
+      </div>
+    </div>
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+  </div>
+  <!--/.Carousel Wrapper-->
+
+
     </section>
+
 </main>
 {% endblock %}

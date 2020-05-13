@@ -43,4 +43,14 @@ class PanierController extends AbstractController
     
 
     }
+
+    /**
+     * @Route("/panier/command", name="panier_result")
+     */
+    public function result()
+    {
+
+        return $this->render('panier/result.html.twig');
+
+    }
 }

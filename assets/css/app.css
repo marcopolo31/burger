@@ -1,25 +1,46 @@
-
-img{
+img {
     height: 250px;
     width: 100%;
 }
 
-.card{
+.card {
     height: 500px;
 }
 
-td img{
+td img {
     height: 100px;
     width: 100px;
 }
 
-.img2{
+.img2 {
     height: 250px;
     width: 25%;
-    
+
 }
 
-.navigation{
+.navigation {
     display: flex;
     justify-content: center;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.avatar-mini {
+    height: 50px;
+    width: 50px;
+}
+
+.price {
+    font-size: 20px;
+    background-color: #00b894;
+    width: 70px;
+    border-radius: 10%;
+    position: absolute;
+    margin-top: -260px;
+}
+
+#carousel-burger{
+    width: 550px;
 }

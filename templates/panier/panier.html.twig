@@ -4,45 +4,44 @@
 
 {% block body %}
 <div class="container">
-<h1 class="text-center">Votre Panier</h1>
+<h1 class="text-center">Mon Panier</h1>
 
 {% if items | length > 0 %}
     <table class="table">
         <thead>
             <tr>
-                <th  class="align-middle">Image</th>
-                <th>Nom</th>
-                <th>Prix</th>
-                <th>Quantité</th>
-                <th>Total</th>
-                <th>Suppression</th>
+                <th  class="text-center">Produit</th>
+                <th  class="text-center">Nom</th>
+                <th  class="text-center">Prix</th>
+                <th  class="text-center">Quantité</th>
+                <th  class="text-center">Total</th>
+                <th  class="text-center">Suppression</th>
             </tr>
         </thead>
         <tbody>
             {% for item in items %}
                 <tr>
-                    <td  class="align-middle"><img src="{{vich_uploader_asset(item.menu,'imageFile')}}" alt="{{item.menu.nom}}"></td>
-                    <td  class="align-middle">{{item.menu.nom}}</td>
-                    <td  class="align-middle">{{item.menu.prix | number_format(2, '.', ',')}}</td>
-                    <td  class="align-middle">{{item.quantity}}</td>
-                    <td  class="align-middle">{{item.menu.prix  * item.quantity | number_format(2, '.', ',')}}</td>
-                    <td  class="align-middle">
-                        <a href="{{path('panier_remove', {'id' : item.menu.id})}}" class="btn"><i class="fas fa-trash-alt"></i></a>
+                    <td  class="align-middle text-center"><img src="{{vich_uploader_asset(item.menu,'imageFile')}}" alt="{{item.menu.nom}}"></td>
+                    <td  class="align-middle text-center">{{item.menu.nom}}</td>
+                    <td  class="align-middle text-center">{{item.menu.prix | number_format(2, '.', ',')}}&euro;</td>
+                    <td  class="align-middle text-center">{{item.quantity}}</td>
+                    <td  class="align-middle text-center">{{(item.menu.prix  * item.quantity) | number_format(2, '.', ',')}}&euro;</td>
+                    <td  class="align-middle text-center">
+                        <a href="{{path('panier_remove', {'id' : item.menu.id})}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="4" class="text-bold">Total : </td>
-                <td>{{total | number_format(2, '.', ',')}}</td>
-                <td></td>
+                <td colspan="4" class="">Total : </td>
+                <td class="text-center">{{total | number_format(2, '.', ',')}}&euro;</td>
             </tr>
         </tfoot>
 
     </table>
     <div class="text-center">
-        <a href="" class="btn btn-success">Acheter</a>
+        <a href="{{path('panier_result')}}" class="btn btn-success">Acheter</a>
     </div>
     
     {% else %}
