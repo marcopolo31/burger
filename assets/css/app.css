@@ -41,6 +41,54 @@ td img {
     margin-top: -260px;
 }
 
-#carousel-burger{
-    width: 550px;
+.burger{
+    height: 550px;
 }
+
+h2{
+    
+    height: 50px;
+    
+    text-align: center;
+
+}
+
+h1{
+    text-align: center;
+    background-color: white;
+}
+
+.logo{
+    height: 150px;
+    width: 150px;
+}
+
+.logo1{
+    height: 90px;
+    width: 90px;
+
+}
+
+.logo2{
+    height: 50px;
+    width: 50px;
+
+}
+
+#carousel-burger{
+    background-image: url('../../public/images/bg.png');
+    color: white;
+}
+
+body{
+    background-image: url('../../public/images/bg.png');
+    color: white;
+}
+
+section{
+    padding: 50px;
+    background-color: white;
+}
+
+
+

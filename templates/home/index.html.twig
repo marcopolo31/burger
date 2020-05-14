@@ -4,85 +4,95 @@
 
 {% block body %}
 <main class="container mt-3">
-    <section>
-        
-        <h1>Nos produits</h1>
-        <!--Carousel Wrapper-->
-<div id="carousel-burger" class="carousel slide carousel-fade" data-ride="carousel">
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-burger" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-burger" data-slide-to="1"></li>
-      <li data-target="#carousel-burger" data-slide-to="2"></li>
-      <li data-target="#carousel-burger" data-slide-to="3"></li>
-    </ol>
-    <!--/.Indicators-->
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-      <div class="carousel-item active">
-        <div class="view">
-          <img class="d-block w-100" src="{{asset('images/img/m2.png')}}"
-            alt="First slide">
-          <div class="mask rgba-black-light"></div>
+  <section>
+    <h2 class="text-center">Restaurant FastBurger</h2>
+    <img class="h-50" src="{{asset('images/img/burger.jpg')}}" alt="img-restau">
+    <h3 class="text-center">Un beau Restaurant fort sympathique</h3>
+    <p class="text-justify">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum assumenda saepe itaque repellat sint nihil.
+      Similique maxime saepe quod adipisci itaque. Explicabo, reiciendis aspernatur? Debitis ipsum suscipit quia odio
+      deserunt?
+      Tenetur ut nobis, tempore quibusdam cum natus quam praesentium velit quis! Molestias, eveniet repudiandae! Animi
+      cum voluptas laudantium aliquam odio veritatis officia. Reprehenderit ratione neque quia molestiae quos, impedit
+      ipsa.
+      Enim laboriosam ducimus excepturi mollitia, maiores perferendis id eius minima, accusantium exercitationem est
+      corporis quae aperiam, ullam voluptatum eaque magnam nam natus rerum placeat quaerat fugit molestiae ut sed? Sunt!
+      Nihil beatae quo fugiat dolore molestiae? Voluptatibus non quia iusto incidunt dolor tempore perferendis
+      voluptate, reprehenderit consequuntur aut odio voluptas doloribus nam distinctio earum eum cum commodi, officiis
+      totam consequatur!
+      Numquam ullam tempore recusandae nostrum saepe, deserunt dolores placeat voluptas ipsa totam officia
+      necessitatibus illo in ab laudantium nobis id reiciendis aspernatur. Molestias ipsam quisquam iure eius nam,
+      accusamus provident!
+      Veritatis fugit magnam nostrum, dolor nihil est quasi minus, sunt natus corrupti unde voluptates quibusdam
+      doloremque nisi adipisci saepe quia quod error voluptatum fugiat sequi aperiam. Facilis incidunt numquam optio.
+    </p>
+
+  </section>
+  <hr>
+  <section>
+
+    <h2 class="text-center">Nos produits</h2>
+    <!--Carousel Wrapper-->
+    <div id="carousel-burger" class="carousel slide carousel-fade" data-ride="carousel">
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-burger" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-burger" data-slide-to="1"></li>
+        <li data-target="#carousel-burger" data-slide-to="2"></li>
+        <li data-target="#carousel-burger" data-slide-to="3"></li>
+      </ol>
+      <!--/.Indicators-->
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="view">
+            <img class="burger d-block" src="{{asset('images/img/m2.png')}}" alt="First slide">
+            <div class="mask rgba-black-light"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Des Menus exceptionnels</h3>
+            <a class="btn btn-primary" href="{{path('menu', {id : 1})}}">Nos Menus</a>
+          </div>
         </div>
-        <div class="carousel-caption">
-          <h3 class="h3-responsive">Light mask</h3>
-          <p>First text</p>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img class="burger d-block" src="{{asset('images/img/b1.png')}}" alt="Second slide">
+            <div class="mask rgba-black-strong"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Des Burgers exceptionnels</h3>
+            <a class="btn btn-primary" href="{{path('menu', {id : 2})}}">Nos Burgers</a>
+          </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <!--Mask color-->
-        <div class="view">
-          <img class="d-block w-100" src="{{asset('images/img/b1.png')}}"
-            alt="Second slide">
-          <div class="mask rgba-black-strong"></div>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img class="burger d-block" src="{{asset('images/img/s2.png')}}" alt="Third slide">
+            <div class="mask rgba-black-slight"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Des Snacks Incroyables</h3>
+            <a class="btn btn-primary" href="{{path('menu', {id : 3})}}">Nos Snacks</a>
+          </div>
         </div>
-        <div class="carousel-caption">
-          <h3 class="h3-responsive">Strong mask</h3>
-          <p>Secondary text</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <!--Mask color-->
-        <div class="view">
-          <img class="d-block w-100" src="{{asset('images/img/s2.png')}}"
-            alt="Third slide">
-          <div class="mask rgba-black-slight"></div>
-        </div>
-        <div class="carousel-caption">
-          <h3 class="h3-responsive">Slight mask</h3>
-          <p>Third text</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <!--Mask color-->
-        <div class="view">
-          <img class="d-block w-100" src="{{asset('images/img/d1.png')}}"
-            alt="Third slide">
-          <div class="mask rgba-black-slight"></div>
-        </div>
-        <div class="carousel-caption">
-          <h3 class="h3-responsive">Slight mask</h3>
-          <p>Third text</p>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img class="burger d-block w-10 h-20" src="{{asset('images/img/d1.png')}}" alt="Third slide">
+            <div class="mask rgba-black-slight"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Des Dessert délicieux</h3>
+            <a class="btn btn-primary" href="{{path('menu', {id : 6})}}">Nos Dessert</a>
+          </div>
         </div>
       </div>
     </div>
-    <!--/.Slides-->
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
-  </div>
-  <!--/.Carousel Wrapper-->
+    <!--/.Carousel Wrapper-->
 
 
-    </section>
+  </section>
 
 </main>
 {% endblock %}

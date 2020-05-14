@@ -1,6 +1,6 @@
-<h1 class="text-center">{% block titre %}FastBurger.com{% endblock %}</h1>
+<h1 class="text-center"><img src="{{asset('images/img/logo.jpg')}}" alt="logo1" class="logo">{% block titre %}FastBurger.com{% endblock %}<img src="{{asset('images/img/fork.jpg')}}" alt="logo2" class="logo1"></h1>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{{path('home')}}">FastBurger</a>
+  <a class="navbar-brand" href="{{path('home')}}"><img src="{{asset('images/img/fork.jpg')}}" alt="logo2" class="logo2">FastBurger</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
     aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,6 +29,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{path('menu', {id : 6})}}">Desserts</a>
       </li>
+
 
 
       {% if is_granted('ROLE_ADMIN') %}
