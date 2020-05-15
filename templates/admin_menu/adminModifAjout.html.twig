@@ -1,12 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modification{% endblock %}
+{% block title %}Ajout/Modification{% endblock %}
 
 {% block body %}
 
 <section class="container">
 
+    {% if isModification %}
     <h1>Modification {{menu.nom}}</h1>
+{% else %}
+   <h1>Ajout d'un Produit</h1>
+{% endif %}
     <img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="{{menu.nom}}" class="img2">
     {{form_start(form)}}
     {{form_widget(form)}}

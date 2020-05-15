@@ -7,27 +7,31 @@
 {% block body %}
 
 <main class="container">
-    <h1>{{categorie.nom}} </h1>
-    <section class="row">
-        {% for menu in categorie.menu %}
-        <div class=" col-md-4 mb-3">
-            <div class="card">
-                <img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="{{menu.nom}}">
-                <div class="card-body">
-                    <p class="price">{{menu.prix | number_format(2, '.', ',')}}€</p>
-                    <h3>{{menu.nom}}</h3>
-                    <p class="card-text">
-                        {{menu.description}}
-                    </p>
+    <section class="mt-3 mb-3">
+        <h1>{{categorie.nom}} </h1>
+        <div class="row">
+            {% for menu in categorie.menu %}
+            <div class=" col-md-4 mb-3">
+                <div class="card">
+                    <img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="{{menu.nom}}">
+                    <div class="card-body">
+                        <p class="price">{{menu.prix | number_format(2, '.', ',')}}€</p>
+                        <h3>{{menu.nom}}</h3>
+                        <p class="card-text">
+                            {{menu.description}}
+                        </p>
+                    </div>
+                    {% if not app.user %}
+                    <a href="{{path('login')}}" class="btn btn-danger mb-2"><i class="fas fa-shopping-cart"></i>
+                        Commander</a>
+                    {% else %}
+                    <a href="{{path('panier_add', {'id' : menu.id})}}" class="btn btn-danger mb-2"><i
+                            class="fas fa-shopping-cart"></i> Commander</a>
+                    {% endif %}
                 </div>
-                {% if not app.user %}
-                <a href="{{path('login')}}" class="btn btn-danger mb-2"><i class="fas fa-shopping-cart"></i> Commander</a>
-                {% else %}
-                <a href="{{path('panier_add', {'id' : menu.id})}}" class="btn btn-danger mb-2"><i class="fas fa-shopping-cart"></i> Commander</a>
-                {% endif %}
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </section>
 </main>
 {% endblock %}

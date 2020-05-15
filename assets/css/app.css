@@ -1,35 +1,50 @@
+*{
+    font-size: 15px;  
+}
+
+body{
+    background-image: url('../../public/images/bg.png');
+    color: white;
+    
+    
+}
+
+section{
+    padding: 50px;
+    background-color: white;
+}
+
+footer{
+    color:white;
+}
+
 img {
     height: 250px;
     width: 100%;
 }
 
-.card {
-    height: 500px;
-}
-
+/*ADMIN TABLE IMG*/
 td img {
     height: 100px;
     width: 100px;
 }
 
+/*ADMIN MODIF*/
 .img2 {
     height: 250px;
     width: 25%;
 
 }
 
-.navigation {
+/*ADMIN TABLEAU PAGINATION*/
+.navigation{
     display: flex;
     justify-content: center;
 }
 
-.avatar {
-    border-radius: 50%;
-}
-
-.avatar-mini {
-    height: 50px;
-    width: 50px;
+/*CARD BURGER MENU*/
+.card {
+    height: 500px;
 }
 
 .price {
@@ -45,19 +60,33 @@ td img {
     height: 550px;
 }
 
-h2{
-    
-    height: 50px;
-    
-    text-align: center;
+/*IMAGE PROFILE*/
 
+.avatar {
+    border-radius: 50%;
+}
+
+.avatar-mini {
+    height: 50px;
+    width: 50px;
+}
+
+/*TITRE*/
+h2{
+    text-align: center;
+    letter-spacing: 5px;
+    
+    
 }
 
 h1{
+    font-size: 100px;
     text-align: center;
     background-color: white;
+    letter-spacing: 5px;
 }
 
+/*LOGO*/
 .logo{
     height: 150px;
     width: 150px;
@@ -75,20 +104,14 @@ h1{
 
 }
 
+/*CAROUSEL IMAGE*/
 #carousel-burger{
     background-image: url('../../public/images/bg.png');
     color: white;
 }
 
-body{
-    background-image: url('../../public/images/bg.png');
-    color: white;
+.nav-item{
+    letter-spacing: 3px;
 }
-
-section{
-    padding: 50px;
-    background-color: white;
-}
-
 
 

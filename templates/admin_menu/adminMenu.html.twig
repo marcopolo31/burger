@@ -4,44 +4,54 @@
 
 {% block body %}
 
-<div class="text-center mt-5">
-<a href="{{path('admin_create')}}" class="btn btn-success w-50 ">Ajouter</a>
-</div>
+<section>
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success text-center">
+        {{ message }}
+    </div>
+    {% endfor %}
 
-<table class="table text-center mt-5">
-    
-    <thead class="table-primary">
-        <tr>
-            <th scope="col">Image</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Description</th>
-            <th scope="col">Catégorie</th>
-            <th scope="col">Prix</th>
-            <th scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for menu in menus %}
-        <tr>
-            <td class="align-middle"><img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="{{menu.nom}}"></td>
-            <td class="align-middle">{{menu.nom}}</td>
-            <td class="align-middle">{{menu.description}}</td>
-            <td class="align-middle">{{menu.categorie.nom}}</td>
-            <td class="align-middle">{{menu.prix | number_format(2, '.', ',')}}</td>
-            <td class="align-middle">
-                <a class="btn btn-primary" href="{{path('admin_modif', {'id' : menu.id})}}">Modifier</a>
-            <form action="{{path('suppression_menu', {'id':menu.id})}}" method="POST" onsubmit="return confirm('Confirmer la suppresssion ?')">
-                <input type="hidden" name="_method" value="SUP">
-                <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ menu.id)}}">
-                <input class="btn btn-danger mt-2" type="submit" value="Supprimer">
-            </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<div class="navigation">
-    {{ knp_pagination_render(menus) }}
-</div>
+    <div class="text-center mt-5">
+        <a href="{{path('admin_create')}}" class="btn btn-success w-50 ">Ajouter</a>
+    </div>
+
+    <table class="table text-center mt-5">
+
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Description</th>
+                <th scope="col">Catégorie</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for menu in menus %}
+            <tr>
+                <td class="align-middle"><img src="{{vich_uploader_asset(menu,'imageFile')}}" alt="{{menu.nom}}"></td>
+                <td class="align-middle">{{menu.nom}}</td>
+                <td class="align-middle">{{menu.description}}</td>
+                <td class="align-middle">{{menu.categorie.nom}}</td>
+                <td class="align-middle">{{menu.prix | number_format(2, '.', ',')}}&euro;</td>
+                <td class="align-middle">
+                    <a class="btn btn-primary" href="{{path('admin_modif', {'id' : menu.id})}}">Modifier</a>
+                    <form action="{{path('suppression_menu', {'id':menu.id})}}" method="POST"
+                        onsubmit="return confirm('Confirmer la suppresssion ?')">
+                        <input type="hidden" name="_method" value="SUP">
+                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ menu.id)}}">
+                        <input class="btn btn-danger mt-2" type="submit" value="Supprimer">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(menus) }}
+    </div>
+
+</section>
 
 {% endblock %}

@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Menu;
 use App\Repository\MenuRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,13 +9,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     /**
+     * Page Accueil
+     * 
      * @Route("/", name="home")
+     * 
+     * @return void
      */
-    public function index(MenuRepository $repository)
+    public function index()
     {   
-        $menus = $repository->findAll();
-        return $this->render('home/index.html.twig', [
-            'menus' => $menus,
-        ]);
+        
+        return $this->render('home/index.html.twig');
     }
 }

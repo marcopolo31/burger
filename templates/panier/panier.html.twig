@@ -3,7 +3,7 @@
 {% block title %}Panier{% endblock %}
 
 {% block body %}
-<div class="container">
+<section class="container mt-3 mb-3">
 <h1 class="text-center">Mon Panier</h1>
 
 {% if items | length > 0 %}
@@ -47,5 +47,5 @@
     {% else %}
     <p class="panier text-center">Le panier est vide!!! Veuillez commander des articles</p>
 {% endif %}    
-</div>
+</section>
 {% endblock %}

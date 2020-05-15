@@ -17,7 +17,11 @@ use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 class AdminMenuController extends AbstractController
 {
     /**
+     * Permet afficher les produits
+     * 
      * @Route("/admin/menu", name="admin_menu")
+     * 
+     * @return Response
      */
     public function index(MenuRepository $repository, PaginatorInterface $paginator, Request $request)
     {
@@ -33,8 +37,12 @@ class AdminMenuController extends AbstractController
     }
 
     /**
+     * Permet de créer et modifier un produit
+     * 
      * @Route("/admin/creation", name="admin_create")
      * @Route("/admin/modif/{id}", name="admin_modif", methods="GET|POST")
+     * 
+     * @return Response
      */
     public function modification(Menu $menu = null, Request $request, EntityManagerInterface $entityManager, UploaderHelper $uploaderHelper, CacheManager $cacheManager)
     {   
@@ -61,12 +69,17 @@ class AdminMenuController extends AbstractController
         return $this->render('admin_menu/adminModifAjout.html.twig', [
             'menu' => $menu,
             'form' => $form->createView(),
+            "isModification" => $menu->getId() !== null
             
         ]);
     }
 
     /**
+     * Permet de supprimer un produit
+     * 
      * @Route("/admin/menu/{id}", name="suppression_menu", methods="SUP")
+     * 
+     * @return Response
      */
     public function suppression(Menu $menu, Request $request, EntityManagerInterface $entityManager)
     {   
@@ -74,7 +87,7 @@ class AdminMenuController extends AbstractController
         {
             $entityManager->remove($menu);
             $entityManager->flush();
-            $this->addFlash('danger', "Le produit a été supprimer");
+            $this->addFlash('success', "Le produit a été supprimer");
             return $this->redirectToRoute("admin_menu");
         }
 

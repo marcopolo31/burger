@@ -8,7 +8,6 @@ use App\Entity\Utilisateur;
 use App\Form\InscriptionType;
 use App\Entity\PasswordUpdate;
 use App\Form\PasswordUpdateType;
-use App\Repository\UtilisateurRepository;
 use Symfony\Component\Form\FormError;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,11 +19,11 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class AdminController extends AbstractController
 {
     /**
-     * Permet de se connecter
+     * Permet afficher formulaire connexion
      * 
      * @Route("/login", name="login")
      * 
-     * 
+     * @return Response
      */
     public function connexion(AuthenticationUtils $util)
     {
@@ -35,7 +34,12 @@ class AdminController extends AbstractController
     }
 
     /**
+     * Permet d'afficher formulaire inscription
+     * 
+     * 
      * @Route("/inscription", name="inscription")
+     * 
+     * @return Response
      */
     public function inscription(Request $request, EntityManagerInterface $entitymanager, UserPasswordEncoderInterface $encoder)
     {   
@@ -69,7 +73,11 @@ class AdminController extends AbstractController
     }
 
      /**
+     * Permet de se déconnecter
+     * 
      * @Route("/logout", name="logout")
+     * 
+     * @return void
      */
     public function deconnexion()
     {
@@ -114,12 +122,12 @@ class AdminController extends AbstractController
     }
 
     /**
-     * Permet de modifier le mot de passe
+     * Permet afficher le formulaire pour modifier le mot de passe
      * 
      * @Route("/account/update-password", name="account_password")
      * 
      *
-     * @return void
+     * @return Response
      */
     public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $manager){
         $passwordUpdate = new PasswordUpdate();
@@ -150,7 +158,7 @@ class AdminController extends AbstractController
                     "Votre mot de passe a été modifié !"
                 );
 
-                return $this->redirectToRoute("home");
+                return $this->redirectToRoute("account_index");
                 }
             
         }
