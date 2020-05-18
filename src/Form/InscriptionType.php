@@ -21,7 +21,7 @@ class InscriptionType extends ApplicationType
             ->add('email', EmailType::class, $this->getConfiguration("Email","Veuillez saisir votre email..."))
             ->add('password',PasswordType::class, $this->getConfiguration("Mot de passe","Veuillez saisir votre mot de passe"))
             ->add('verifPassword',PasswordType::class, $this->getConfiguration("Confirmation de Mot de passe","Confirmez votre mot de passe"))
-            ->add('picture', UrlType::class, $this->getConfiguration("Image", "Mettez une Url d'image de vous ou pas...",["required" => False]))
+            ->add('picture', UrlType::class, $this->getConfiguration("Image Url", "Mettez une Url d'image de vous ou pas...",["required" => False]))
 
             
         ;

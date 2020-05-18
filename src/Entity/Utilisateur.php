@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
  * @UniqueEntity(
  * fields = {"username"},
- * message="user existe déjà"
+ * message="Le Pseudo existe déjà! Veuillez saisir un autre Pseudo "
  * )
  */
 class Utilisateur implements UserInterface{
@@ -27,16 +27,18 @@ class Utilisateur implements UserInterface{
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=8, minMessage="Votre mot de passe doit faire au moins 8 caractères !")
      */
     private $password;
 
     /**
-     * @Assert\EqualTo(propertyPath="password",message="Les mdp ne correspondent pas")
+     * @Assert\EqualTo(propertyPath="password",message="Les mots de passe ne correspondent pas")
      */
     private $verifPassword;
 
@@ -47,11 +49,13 @@ class Utilisateur implements UserInterface{
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(message="Veuillez renseigner un email valide !")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * 
      */
     private $picture;
 
