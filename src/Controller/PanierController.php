@@ -11,7 +11,7 @@ class PanierController extends AbstractController
     /**
      * Affichage du Panier + montant
      * 
-     * @Route("/panier", name="panier")
+     * @Route("/user/panier", name="panier")
      * 
      * @return Response
      */
@@ -27,7 +27,7 @@ class PanierController extends AbstractController
     /**
      * Permet d'ajouter un article dans le panier
      * 
-     * @Route("/panier/add/{id}", name="panier_add")
+     * @Route("/user/panier/add/{id}", name="panier_add")
      * 
      * @return Response
      */
@@ -42,7 +42,7 @@ class PanierController extends AbstractController
     /**
      * Permet de supprimer un article dans le panier
      * 
-     * @Route("/panier/remove/{id}", name="panier_remove")
+     * @Route("/user/panier/remove/{id}", name="panier_remove")
      * 
      * @return Response
      */
@@ -59,7 +59,7 @@ class PanierController extends AbstractController
     /**
      * Affiche validation commande
      * 
-     * @Route("/panier/command", name="panier_result")
+     * @Route("/user/panier/command", name="panier_result")
      * 
      * @return void
      */

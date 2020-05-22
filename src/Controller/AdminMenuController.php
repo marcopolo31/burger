@@ -19,7 +19,7 @@ class AdminMenuController extends AbstractController
     /**
      * Permet afficher les produits
      * 
-     * @Route("/admin/menu", name="admin_menu")
+     * @Route("/admin", name="admin_menu")
      * 
      * @return Response
      */
