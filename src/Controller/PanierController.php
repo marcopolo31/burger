@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Service\PanierService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class PanierController extends AbstractController
 {
@@ -67,6 +69,39 @@ class PanierController extends AbstractController
     {
 
         return $this->render('panier/result.html.twig');
+
+    }
+
+    
+    /**
+     * Affiche pdf commande
+     * 
+     * @Route("/panier/pdf", name="panier_pdf")
+     * 
+     * @return void
+     */
+    public function pdf(PanierService $panierService)
+    {
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        $dompdf = new Dompdf($pdfOptions);
+
+        $html = $this->renderView('panier/pdf.html.twig', [
+            'items' => $panierService->getFullPanier(),
+            'total' => $panierService->getTotal()
+        ]);
+
+        $dompdf->loadHtml($html);
+
+        $dompdf->setPaper('A4', 'portrait');
+
+        $dompdf->render();
+
+        $dompdf->stream("commande.pdf", [
+            "Attachment" =>false
+        ]);
+
 
     }
 }

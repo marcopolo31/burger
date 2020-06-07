@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande en pdf{% endblock %}
+
+{% block body %}
+    
+
+    {% if items | length > 0 %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center">Nom</th>
+                <th class="text-center">Prix</th>
+                <th class="text-center">Quantité</th>
+                <th class="text-center">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td class="align-middle text-center">{{item.menu.nom}}</td>
+                <td class="align-middle text-center">{{item.menu.prix | number_format(2, '.', ',')}}&euro;</td>
+                <td class="align-middle text-center">{{item.quantity}}</td>
+                <td class="align-middle text-center">
+                    {{(item.menu.prix  * item.quantity) | number_format(2, '.', ',')}}&euro;</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total : </td>
+                <td class="text-center">{{total | number_format(2, '.', ',')}}&euro;</td>
+            </tr>
+        </tfoot>
+
+    </table>
+    {% endif %}
+
+
+</section>
+{% endblock %}
